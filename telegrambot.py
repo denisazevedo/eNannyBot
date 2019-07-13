@@ -61,18 +61,13 @@ async def handle_play(message: types.Message):
     audioplayer.start() # TODO Start it here?
     audioplayer.play()
     msg = "Playing..."
-
-
-    _keyboard = [
-        [types.KeyboardButton('Fine')], 
-        [types.KeyboardButton('Not bad')],
-    ]
-    keyboard = types.ReplyKeyboardMarkup(keyboard=_keyboard)
-
-    await message.reply(msg, reply_markup=keyboard)
-
-
-    # await bot.send_message(message.chat.id, msg)
+    # _keyboard = [
+    #     [types.InlineKeyboardMarkup('/pause')], 
+    #     [types.InlineKeyboardMarkup('/stop')],
+    # ]
+    # keyboard = types.InlineKeyboardMarkup(keyboard=_keyboard)
+    # await message.reply(msg, reply_markup=keyboard)
+    await bot.send_message(message.chat.id, msg)
 
 @dp.message_handler(commands=['stop'])
 async def handle_stop(message: types.Message):
