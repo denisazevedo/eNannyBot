@@ -1,0 +1,8 @@
+[BOT]
+TOKEN = <your_bot_token>
+ALLOWED_USERS = <username1>,<username2>
+
+[AUDIO]
+; FILE_PATH = assets/Brahms_Lullaby.ogg
+FILE_PATH = assets/<audio_file_name.ext>
+LOOPS = -1
