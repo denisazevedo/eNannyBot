@@ -1,4 +1,7 @@
+# Project configuration
 config/config.ini
+
+nohup.out
 
 # From https://github.com/github/gitignore/blob/master/Python.gitignore
 
