@@ -1,18 +1,21 @@
+#!/usr/bin/env python3
+
 import configparser
 import pygame
 
 # TODO Convert to a Class???
 
 config = configparser.ConfigParser()
-config.read('config/config.ini')
+config.read('./config/config.ini')
 AUDIO_PATH = config['AUDIO']['FILE_PATH']
 LOOPS = int(config['AUDIO']['LOOPS'])
 
 def init():
-    # pygame.mixer.init()
-    BUFFER = 3072  # audio buffer size, number of samples since pygame 1.8.
-    pygame.mixer.init(buffer=BUFFER)
-    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.pre_init()
+    pygame.mixer.init()
+    # BUFFER = 3072  # audio buffer size, number of samples since pygame 1.8.
+    # pygame.mixer.init(buffer=BUFFER)
+    pygame.mixer.music.set_volume(0.7)
 
 def start():
     print(f"Loading audio file {AUDIO_PATH}...")
@@ -30,7 +33,6 @@ def stop():
     pygame.mixer.music.stop()
 
 def pause():
-    # res = "Pausing at {}...".format(getCurrentTimePosition())
     res = f"Pausing at {getCurrentTimePosition()}..."
     print(res)
     pygame.mixer.music.pause()
@@ -46,15 +48,29 @@ def quit():
     print("Good bye!")
     pygame.quit()
 
-# def volume_up():
-#     v = pygame.mixer.music.get_volume()
-#     v = 1 if v > 0.9 else v+0.1
-#     pygame.mixer.music.set_volume(v)
+# TODO implement get status function
+def get_status() -> str:
+    # TODO check if it is playing
+    #if is_playing:
+    # TODO get current position
+    pos = pygame.mixer.music.get_pos()
+    time = convertMillisToHumanTime(pos)
+    # TODO get volume
+    # TODO get song name
+    res = time # FIXME
+    return res
 
-# def volume_down():
-#     v = pygame.mixer.music.get_volume()
-#     v = 0 if v < 0.1 else v-0.1
-#     pygame.mixer.music.set_volume(v)
+# TODO
+def volume_up():
+    v = pygame.mixer.music.get_volume()
+    v = 1 if v > 0.9 else v+0.1
+    pygame.mixer.music.set_volume(v)
+
+# TODO
+def volume_down():
+    v = pygame.mixer.music.get_volume()
+    v = 0 if v < 0.1 else v-0.1
+    pygame.mixer.music.set_volume(v)
 
 def getCurrentTimePosition() -> str:
     pos = pygame.mixer.music.get_pos()

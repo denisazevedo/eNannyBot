@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import configparser
 import logging
 import audioplayer
@@ -61,6 +63,7 @@ async def handle_play(message: types.Message):
     audioplayer.start() # TODO Start it here?
     audioplayer.play()
     msg = "Playing..."
+    logging.info(msg)
     # _keyboard = [
     #     [types.InlineKeyboardMarkup('/pause')], 
     #     [types.InlineKeyboardMarkup('/stop')],
