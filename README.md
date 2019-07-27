@@ -35,6 +35,7 @@ unpause - Resume playing
 ## Usage
 
 ```shell
+pip install pipenv
 pipenv install
 python telegrambot.py
 ```

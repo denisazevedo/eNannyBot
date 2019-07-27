@@ -5,7 +5,8 @@ from aiogram.dispatcher.filters import BoundFilter
 
 config = configparser.ConfigParser()
 config.read('config/config.ini')
-ALLOWED_USERS = [ el.strip() for el in config['BOT']['ALLOWED_USERS'].split(',') ]
+ALLOWED_USERS = [el.strip() for el in config['BOT']['ALLOWED_USERS'].split(',')]
+
 
 def is_user_authorized(message: types.Message) -> bool:
     return message.from_user.username in ALLOWED_USERS
@@ -14,6 +15,7 @@ def is_user_authorized(message: types.Message) -> bool:
 #     valid = message.from_user.username in ALLOWED_USERS
 #     print(f"Filter function -> {message.from_user.username}, valid: {valid}")
 #     return valid
+
 
 class RestrictUsersFilter(BoundFilter):
     """
