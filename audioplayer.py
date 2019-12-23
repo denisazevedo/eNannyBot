@@ -74,14 +74,12 @@ def get_status() -> str:
     return res
 
 
-# TODO
 def volume_up():
     v = pygame.mixer.music.get_volume()
     v = 1 if v > 0.9 else v+0.1
     pygame.mixer.music.set_volume(v)
 
 
-# TODO
 def volume_down():
     v = pygame.mixer.music.get_volume()
     v = 0 if v < 0.1 else v-0.1
@@ -110,9 +108,9 @@ def _convert_millis_to_human_time(ms: int) -> str:
 
 if __name__ == '__main__':
     logging.info("Starting AudioPlayer...")
-    init()
-    start()
-    play()
-    while pygame.mixer.music.get_busy() is True:
-        continue
-    quit()
+    # init()
+    # start()
+    # play()
+    # while pygame.mixer.music.get_busy() is True:
+    #     continue
+    # quit()

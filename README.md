@@ -23,13 +23,19 @@ An electronic nanny for our daughter Lara. It plays a lullaby as its only featur
 
 #### List of commands
 
-```json
+```sh
+# Generic commands
 start - Send a list of all available commands
 help - Bot help and available commands
+
+# Audio player
 play - Play the lullaby song
 stop - Stop song
-pause - Pause song
-unpause - Resume playing
+pause/unpause - Pause/resume playing
+volume - Turn up/down the volume
+
+# Camera
+pic - Take a picture
 ```
 
 ## Usage

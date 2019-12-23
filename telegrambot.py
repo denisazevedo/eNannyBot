@@ -50,10 +50,14 @@ async def handle_help(message: types.Message):
     ]
     if is_user_authorized(message):
         text.extend([
+            # TODO implement camera
+            # "# Camera"
+            # "/pic - Take a picture",
+            "# Audio player"
             "/play - Play the lullaby song",
             "/stop - Stop song",
             "/pause /unpause - Pause/resume playing",
-            "/pic - Take a picture",
+            "/volume - Turn up/down the volume",
         ])
     await message.reply(
         parse_mode="HTML",
@@ -93,6 +97,21 @@ async def handle_pause(message: types.Message):
         msg = audioplayer.unpause()
     else:
         msg = "Command not valid"
+    await bot.send_message(message.chat.id, msg)
+
+
+@dp.message_handler(commands=['volume'])
+async def handle_pause(message: types.Message):
+    """ Turn the volume up/down. """
+    # TODO Show keyboard
+    if message.get_command() == '/vol_up':
+        print('Volume up')
+        audioplayer.volume_up()
+    elif message.get_command() == '/vol_down':
+        print('Volume down')
+        audioplayer.volume_down()
+    else:
+        msg = "Volume command not valid"
     await bot.send_message(message.chat.id, msg)
 
 
